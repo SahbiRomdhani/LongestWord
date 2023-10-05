@@ -7,8 +7,13 @@ function findLongestWordWithMostVowels(sentence) {
   for (const word of words) {
     // Remove non-English letters and spaces
     const sanitizedWord = removeNonEnglishWords(word);
-    // Count the vowels in the word
+
+    // Count the vowels in the word either lowercase or uppercase
     const vowelCount = countVowels(sanitizedWord);
+
+    // check if the word is longer than the longest word
+    // then replace the new word with the longest
+    // if the length is the same then check the maxVowelCount
     if (
       sanitizedWord.length > longestWord.length ||
       (sanitizedWord.length === longestWord.length &&
@@ -32,8 +37,15 @@ function countVowels(word) {
   return vowelCount;
 }
 
-// Example usage
+// input Sentences
+
 const sentence =
-  "Smart P_eople leArn from everything and 1, average people from their experience, stupid people already, have all the answers";
-const longestWord = findLongestWordWithMostVowels(sentence);
+  "Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers";
+const sentence1 = "JavaScript is an amazing programming language";
+const sentence2 =
+  "This is a test sentence with multiple words of different lengths";
+
+// Execute the program
+
+const longestWord = findLongestWordWithMostVowels(sentence1);
 console.log("Longest word with the most vowels:", longestWord);
